@@ -6,5 +6,6 @@ import './assets/program.css'
 import './assets/about.css'
 import App from './App.vue'
 import router from './router'
+import reveal from './directives/reveal'
 
-createApp(App).use(router).mount('#app')
+createApp(App).directive('reveal', reveal).use(router).mount('#app')

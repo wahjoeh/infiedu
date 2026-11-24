@@ -6,8 +6,10 @@ import AboutView from '../views/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
-  scrollBehavior(to) {
-    return to.hash ? { el: to.hash, behavior: 'smooth' } : { top: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash) return { el: to.hash, behavior: 'smooth', top: 84 }
+    return { top: 0 }
   },
   routes: [
     { path: '/', name: 'home', component: HomeView },

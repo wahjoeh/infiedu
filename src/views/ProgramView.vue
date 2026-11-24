@@ -1,24 +1,11 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import infieduMark from '../assets/images/brand/infiedu-mark.png'
+import ComparisonTable from '../components/ComparisonTable.vue'
+import CtaBand from '../components/CtaBand.vue'
+import { prices, whatsappUrl } from '../data/site'
 
 const route = useRoute()
-const menuOpen = ref(false)
-const openDropdown = ref(null)
-const whatsappUrl = 'https://wa.me/6285111630006'
-const levels = [
-  { label: 'SD', to: '/sd' },
-  { label: 'SMP', to: '/smp' },
-  { label: 'SMA', to: '/sma' },
-  { label: 'UTBK/SNBT', to: '/program/persiapan-snbt' },
-]
-const programMenu = [
-  { label: 'Bimbingan Belajar', to: '/program/bimbingan-belajar' },
-  { label: 'English For Kids', to: '/program/english-for-kids' },
-  { label: 'Persiapan TKA', to: '/program/persiapan-tka' },
-  { label: 'Persiapan SNBT', to: '/program/persiapan-snbt' },
-]
 const programs = {
   bimbinganBelajar: {
     name: 'Bimbingan Belajar', eyebrow: 'PENDAMPINGAN BELAJAR SEKOLAH',
@@ -109,150 +96,120 @@ const programs = {
   },
 }
 const program = computed(() => programs[route.meta.program] ?? programs.bimbinganBelajar)
-function toggleDropdown(name) {
-  openDropdown.value = openDropdown.value === name ? null : name
+const tones = {
+  coral: { tone: 'var(--coral)', soft: 'var(--coral-50)' },
+  english: { tone: 'var(--teal-600)', soft: 'var(--teal-50)' },
+  blue: { tone: '#1aa9c4', soft: 'var(--cyan-50)' },
+  snbt: { tone: 'var(--navy-700)', soft: 'var(--lilac-50)' },
 }
-function closeMenus() {
-  menuOpen.value = false
-  openDropdown.value = null
-}
+const toneStyle = computed(() => ({ '--tone': tones[program.value.tone]?.tone, '--tone-soft': tones[program.value.tone]?.soft }))
+const tablePrice = (level) => prices[`tka-${level}`]
+const planPriceKey = { bimbinganBelajar: 'bimbel-sd', englishForKids: 'english-for-kids', persiapanSnbt: 'snbt-sma' }
+const planPrice = computed(() => prices[planPriceKey[route.meta.program]] ?? prices['bimbel-sd'])
 </script>
 
 <template>
-  <div class="program-page" :class="`program-${program.tone}`" @keydown.esc="closeMenus">
-    <header class="site-header program-header">
-      <RouterLink class="logo" to="/" aria-label="InfiEdu, beranda" @click="closeMenus">
-        <img class="logo-symbol" :src="infieduMark" alt="" />
-        <span class="logo-wordmark">InfiEdu<small>Teman tumbuh dan belajar</small></span>
-      </RouterLink>
-      <button class="menu-button" type="button" :aria-expanded="menuOpen" aria-label="Buka menu" @click="menuOpen = !menuOpen">{{ menuOpen ? '×' : '☰' }}</button>
-      <nav class="navigation" :class="{ 'navigation-open': menuOpen }" aria-label="Navigasi utama">
-        <div class="nav-dropdown">
-          <button type="button" class="nav-trigger" :aria-expanded="openDropdown === 'jenjang'" @click="toggleDropdown('jenjang')">Pilih Jenjang <span>▾</span></button>
-          <ul v-show="openDropdown === 'jenjang'" class="dropdown-panel">
-            <li v-for="level in levels" :key="level.label"><RouterLink :to="level.to" @click="closeMenus">{{ level.label }}</RouterLink></li>
-          </ul>
-        </div>
-        <div class="nav-dropdown">
-          <button type="button" class="nav-trigger" :aria-expanded="openDropdown === 'program'" @click="toggleDropdown('program')">Pilih Program <span>▾</span></button>
-          <ul v-show="openDropdown === 'program'" class="dropdown-panel">
-            <li v-for="item in programMenu" :key="item.label"><RouterLink :to="item.to" @click="closeMenus">{{ item.label }}</RouterLink></li>
-          </ul>
-        </div>
-        <RouterLink :to="{ path: '/', hash: '#cerita' }" @click="closeMenus">Cerita Siswa</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#promo' }" @click="closeMenus">Promo</RouterLink>
-        <a class="nav-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer" @click="closeMenus">Coba Kelas Tatap Muka <span>↗</span></a>
-      </nav>
-    </header>
-
-    <main class="program-main">
-      <section class="program-hero layout-width">
-        <div class="program-hero-copy">
-          <RouterLink class="program-back" to="/">← Kembali ke beranda</RouterLink>
-          <p class="eyebrow"><span></span>{{ program.eyebrow }}</p>
+  <div class="program-page" :style="toneStyle">
+    <section class="page-hero">
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          <nav class="crumbs" aria-label="Breadcrumb"><RouterLink to="/">Beranda</RouterLink><span aria-hidden="true">/</span><RouterLink :to="{ path: '/', hash: '#program' }">Program</RouterLink><span aria-hidden="true">/</span><span>{{ program.name }}</span></nav>
+          <p class="eyebrow">{{ program.eyebrow }}</p>
           <h1>{{ program.headline }} <em>{{ program.accent }}</em></h1>
-          <p class="program-description">{{ program.description }}</p>
-          <div class="program-audience"><span>{{ program.audience }}</span><span>Kelas tatap muka</span></div>
-          <a class="button button-dark" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Konsultasi program <span>↗</span></a>
-        </div>
-        <div class="program-hero-art" aria-hidden="true">
-          <div class="program-art-orbit"></div>
-          <img :src="program.image" alt="" />
-          <span>{{ program.visual }}</span>
-          <i class="program-art-spark spark-a">✦</i><i class="program-art-spark spark-b">✳</i>
-        </div>
-      </section>
-
-      <section v-if="program.options" class="program-options layout-width">
-        <div class="program-options-heading">
-          <p class="eyebrow"><span></span> PILIH PROGRAM</p>
-          <h2>{{ program.optionsHeading }}</h2>
-        </div>
-        <div class="program-option-grid" :class="{ 'program-option-single': program.options.length === 1 }">
-          <template v-for="option in program.options" :key="option.title">
-            <a v-if="option.external" class="program-option-card" :href="option.to" target="_blank" rel="noopener noreferrer">
-              <span class="program-option-tag">{{ option.tag }}</span>
-              <h3>{{ option.title }}</h3>
-              <p>{{ option.text }}</p>
-              <span class="program-option-action">{{ option.action }} <b>↗</b></span>
-            </a>
-            <RouterLink v-else class="program-option-card" :to="option.to">
-              <span class="program-option-tag">{{ option.tag }}</span>
-              <h3>{{ option.title }}</h3>
-              <p>{{ option.text }}</p>
-              <span class="program-option-action">{{ option.action }} <b>↗</b></span>
-            </RouterLink>
-          </template>
-        </div>
-      </section>
-
-      <section v-if="program.comparisonTables" class="program-tka-tables layout-width">
-        <article v-for="table in program.comparisonTables" :id="table.id" :key="table.id" class="program-tka-table-section" :class="`program-tka-${table.level}`">
-          <div class="program-tka-table-heading"><p class="eyebrow"><span></span> PILIHAN JENJANG TKA</p><h2>{{ table.title }}</h2><p>{{ table.subtitle }}</p></div>
-          <div class="comparison-shell program-tka-table">
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr>
-                  <th scope="col">Rincian Program</th>
-                  <th scope="col"><span class="plan-pill plan-group">Kelas Besar</span><small>Belajar bersama kelompok</small></th>
-                  <th scope="col"><span class="plan-pill plan-private">Private</span><small>Fokus personal 1 siswa</small></th>
-                </tr></thead>
-                <tbody>
-                  <tr v-for="row in table.rows" :key="row.title">
-                    <th scope="row">{{ row.title }}</th>
-                    <td><span class="benefit-check">✓</span>{{ row.large }}</td>
-                    <td><span class="benefit-check">✓</span>{{ row.private }}</td>
-                  </tr>
-                </tbody>
-                <tfoot><tr>
-                  <th scope="row">Biaya program</th>
-                  <td><div class="comparison-price"><small>Mulai dari</small><strong>Rp250.000</strong></div><a class="comparison-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Kelas Besar <span>↗</span></a></td>
-                  <td><div class="comparison-price"><small>Mulai dari</small><strong>Rp400.000</strong></div><a class="comparison-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Private <span>↗</span></a></td>
-                </tr></tfoot>
-              </table>
-            </div>
+          <p class="page-hero__lead">{{ program.description }}</p>
+          <div class="page-hero__tags"><span class="chip"><i></i>{{ program.audience }}</span><span class="chip"><i></i>Kelas tatap muka</span></div>
+          <div class="page-hero__actions">
+            <a class="btn btn--primary btn--lg" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Konsultasi program <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="#manfaat">Apa yang didapat <span aria-hidden="true">↓</span></a>
           </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <img :src="program.image" alt="" />
+          <div class="hero-art__caption"><b>✦</b><span><small>{{ program.name }}</small>{{ program.visual }}</span></div>
+          <span class="hero-art__spark hero-art__spark--a">✳</span><span class="hero-art__spark hero-art__spark--b">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <section v-if="program.options" class="section--tight container" aria-labelledby="options-title">
+      <div class="section-head" v-reveal>
+        <div class="section-head__copy">
+          <p class="eyebrow">Pilih program</p>
+          <h2 id="options-title">{{ program.optionsHeading }}</h2>
+        </div>
+      </div>
+      <div class="option-grid" :class="{ 'option-grid--single': program.options.length === 1 }">
+        <template v-for="(option, i) in program.options" :key="option.title">
+          <a v-if="option.external || option.to.startsWith('#')" class="option" :href="option.to" :target="option.external ? '_blank' : undefined" :rel="option.external ? 'noopener noreferrer' : undefined" v-reveal="i * 90">
+            <span class="option__tag">{{ option.tag }}</span>
+            <h3>{{ option.title }}</h3>
+            <p>{{ option.text }}</p>
+            <span class="option__action">{{ option.action }} <b aria-hidden="true">→</b></span>
+          </a>
+          <RouterLink v-else class="option" :to="option.to" v-reveal="i * 90">
+            <span class="option__tag">{{ option.tag }}</span>
+            <h3>{{ option.title }}</h3>
+            <p>{{ option.text }}</p>
+            <span class="option__action">{{ option.action }} <b aria-hidden="true">→</b></span>
+          </RouterLink>
+        </template>
+      </div>
+    </section>
+
+    <section v-if="program.comparisonTables" class="section offerings" aria-label="Rincian dan biaya TKA per jenjang">
+      <div class="container tka-list">
+        <article v-for="table in program.comparisonTables" :id="table.id" :key="table.id" class="tka" v-reveal>
+          <div class="tka__head">
+            <span class="tka__level">{{ table.level.toUpperCase() }}</span>
+            <div><h2>{{ table.title }}</h2><p>{{ table.subtitle }}</p></div>
+          </div>
+          <ComparisonTable :rows="table.rows" :price-large="tablePrice(table.level).large" :price-private="tablePrice(table.level).private" />
         </article>
-      </section>
+      </div>
+    </section>
 
-      <section id="manfaat" class="program-benefits layout-width">
-        <div class="program-section-heading">
-          <p class="eyebrow"><span></span> {{ program.name.toUpperCase() }}</p>
-          <h2>Belajar dengan dukungan<br /><em>yang dibutuhkan.</em></h2>
+    <section id="manfaat" class="section container" aria-labelledby="benefit-title">
+      <div class="section-head section-head--center" v-reveal>
+        <div class="section-head__copy">
+          <p class="eyebrow">{{ program.name }}</p>
+          <h2 id="benefit-title">Belajar dengan dukungan <span class="hl" :style="{ color: 'var(--tone)' }">yang dibutuhkan.</span></h2>
         </div>
-        <div class="program-benefit-grid">
-          <article v-for="(feature, index) in program.features" :key="feature.title" class="program-benefit-card">
-            <span class="program-benefit-number">0{{ index + 1 }}</span>
-            <span class="program-benefit-icon">{{ feature.icon }}</span>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.text }}</p>
-          </article>
-        </div>
-      </section>
+      </div>
+      <div class="feature-grid">
+        <article v-for="(feature, i) in program.features" :key="feature.title" class="feature-card" v-reveal="i * 100">
+          <span class="feature-card__num" aria-hidden="true">0{{ i + 1 }}</span>
+          <span class="feature-card__icon" aria-hidden="true">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.text }}</p>
+        </article>
+      </div>
+    </section>
 
-      <section v-if="!program.comparisonTables" class="program-pricing layout-width">
-        <div class="program-pricing-heading"><p class="eyebrow"><span></span> PILIH FORMAT BELAJAR</p><h2>Sesuaikan dengan kebutuhanmu.</h2></div>
-        <div class="program-plan-grid">
-          <article class="program-plan-card plan-large">
-            <span class="plan-pill plan-group">Kelas Besar</span>
-            <p>Belajar tatap muka bersama kelompok dengan pendampingan tutor.</p>
-            <small>Mulai dari</small><strong>Rp250.000</strong>
-            <a class="comparison-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Kelas Besar <span>↗</span></a>
-          </article>
-          <article class="program-plan-card plan-one-to-one">
-            <span class="plan-pill plan-private">Private</span>
-            <p>Belajar tatap muka privat dengan fokus pada kebutuhan siswa.</p>
-            <small>Mulai dari</small><strong>Rp400.000</strong>
-            <a class="comparison-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Private <span>↗</span></a>
-          </article>
+    <section v-if="!program.comparisonTables" class="section--tight container" aria-labelledby="plan-title">
+      <div class="section-head section-head--center" v-reveal>
+        <div class="section-head__copy">
+          <p class="eyebrow">Pilih format belajar</p>
+          <h2 id="plan-title">Sesuaikan dengan <span class="hl">kebutuhanmu.</span></h2>
         </div>
-      </section>
-    </main>
+      </div>
+      <div class="plans">
+        <article class="plan" v-reveal>
+          <span class="pill pill--group">Kelas Besar</span>
+          <h3>Belajar bersama kelompok</h3>
+          <p>Belajar tatap muka bersama kelompok dengan pendampingan tutor.</p>
+          <div class="price"><small>Mulai dari</small><strong>{{ planPrice.large }}</strong></div>
+          <a class="btn btn--ghost" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Kelas Besar <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </article>
+        <article class="plan plan--featured" v-reveal="100">
+          <span class="pill pill--private">Private</span>
+          <h3>Fokus personal 1 siswa</h3>
+          <p>Belajar tatap muka privat dengan fokus pada kebutuhan siswa.</p>
+          <div class="price"><small>Mulai dari</small><strong>{{ planPrice.private }}</strong></div>
+          <a class="btn btn--primary" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya Private <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
 
-    <footer class="program-footer">
-      <RouterLink class="logo" to="/" aria-label="Kembali ke beranda"><img class="logo-symbol" :src="infieduMark" alt="" /><span class="logo-wordmark">InfiEdu</span></RouterLink>
-      <span>Teman tumbuh dan belajar.</span>
-      <RouterLink to="/">Kembali ke beranda ↑</RouterLink>
-    </footer>
+    <CtaBand :title="`Siap mulai ${program.name}?`" text="Tanyakan jadwal kelas, biaya, dan kelas percobaan gratis kepada tim Infiedu." />
   </div>
 </template>

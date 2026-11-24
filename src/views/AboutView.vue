@@ -1,136 +1,95 @@
 <script setup>
-import { ref } from 'vue'
-import infieduMark from '../assets/images/brand/infiedu-mark.png'
+import CtaBand from '../components/CtaBand.vue'
+import { address, mapsUrl, whatsappUrl } from '../data/site'
 
-const menuOpen = ref(false)
-const openDropdown = ref(null)
-const whatsappUrl = 'https://wa.me/6285111630006'
-const levels = [
-  { label: 'SD', to: '/sd' },
-  { label: 'SMP', to: '/smp' },
-  { label: 'SMA', to: '/sma' },
-  { label: 'UTBK/SNBT', to: '/program/persiapan-snbt' },
-]
-const programMenu = [
-  { label: 'Bimbingan Belajar', to: '/program/bimbingan-belajar' },
-  { label: 'English For Kids', to: '/program/english-for-kids' },
-  { label: 'Persiapan TKA', to: '/program/persiapan-tka' },
-  { label: 'Persiapan SNBT', to: '/program/persiapan-snbt' },
-]
 const principles = [
   { icon: '♡', title: 'Memahami setiap siswa', text: 'Setiap anak memiliki kebutuhan dan cara belajar yang berbeda. Pendampingan dimulai dengan memahami prosesnya.' },
   { icon: '✦', title: 'Belajar dengan nyaman', text: 'Suasana belajar yang suportif membantu siswa bertanya, mencoba, dan berkembang dengan percaya diri.' },
   { icon: '↗', title: 'Tumbuh dengan terarah', text: 'Langkah belajar dibuat lebih jelas agar siswa dapat bergerak menuju tujuan akademiknya.' },
 ]
-function toggleDropdown(name) {
-  openDropdown.value = openDropdown.value === name ? null : name
-}
-function closeMenus() {
-  menuOpen.value = false
-  openDropdown.value = null
-}
+const values = ['Personal', 'Menyenangkan', 'Terarah', 'Berdampak']
 </script>
 
 <template>
-  <div class="about-page" @keydown.esc="closeMenus">
-    <header class="site-header about-header">
-      <RouterLink class="logo" to="/" aria-label="InfiEdu, beranda" @click="closeMenus">
-        <img class="logo-symbol" :src="infieduMark" alt="" />
-        <span class="logo-wordmark">InfiEdu<small>Teman tumbuh dan belajar</small></span>
-      </RouterLink>
-      <button class="menu-button" type="button" :aria-expanded="menuOpen" aria-label="Buka menu" @click="menuOpen = !menuOpen">{{ menuOpen ? '×' : '☰' }}</button>
-      <nav class="navigation" :class="{ 'navigation-open': menuOpen }" aria-label="Navigasi utama">
-        <div class="nav-dropdown">
-          <button type="button" class="nav-trigger" :aria-expanded="openDropdown === 'jenjang'" @click="toggleDropdown('jenjang')">Pilih Jenjang <span>▾</span></button>
-          <ul v-show="openDropdown === 'jenjang'" class="dropdown-panel">
-            <li v-for="level in levels" :key="level.label"><RouterLink :to="level.to" @click="closeMenus">{{ level.label }}</RouterLink></li>
-          </ul>
-        </div>
-        <div class="nav-dropdown">
-          <button type="button" class="nav-trigger" :aria-expanded="openDropdown === 'program'" @click="toggleDropdown('program')">Pilih Program <span>▾</span></button>
-          <ul v-show="openDropdown === 'program'" class="dropdown-panel">
-            <li v-for="program in programMenu" :key="program.label"><RouterLink :to="program.to" @click="closeMenus">{{ program.label }}</RouterLink></li>
-          </ul>
-        </div>
-        <RouterLink :to="{ path: '/', hash: '#cerita' }" @click="closeMenus">Cerita Siswa</RouterLink>
-        <RouterLink :to="{ path: '/', hash: '#promo' }" @click="closeMenus">Promo</RouterLink>
-        <a class="nav-cta" :href="whatsappUrl" target="_blank" rel="noopener noreferrer" @click="closeMenus">Coba Kelas Tatap Muka <span>↗</span></a>
-      </nav>
-    </header>
-
-    <main class="about-main">
-      <section class="about-hero layout-width">
-        <div class="about-hero-copy">
-          <p class="eyebrow"><span></span> TENTANG INFIEDU</p>
-          <h1>Teman tumbuh<br />dan <em>belajar.</em></h1>
-          <p>Setiap anak punya cara hebatnya sendiri. Infiedu hadir untuk menemani perjalanan belajar dengan pendampingan yang suportif dan terarah.</p>
-          <div class="about-actions">
-            <a class="button button-dark" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Kenali program kami <span>↗</span></a>
-            <a class="about-text-link" href="#nilai">Nilai yang kami pegang <span>↓</span></a>
+  <div class="about">
+    <section class="page-hero about-hero">
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          <nav class="crumbs" aria-label="Breadcrumb"><RouterLink to="/">Beranda</RouterLink><span aria-hidden="true">/</span><span>Tentang Kami</span></nav>
+          <p class="eyebrow">Tentang Infiedu</p>
+          <h1>Teman tumbuh dan <span class="hl hl--underline">belajar.</span></h1>
+          <p class="page-hero__lead">Setiap anak punya cara hebatnya sendiri. Infiedu hadir untuk menemani perjalanan belajar dengan pendampingan yang suportif dan terarah.</p>
+          <div class="page-hero__actions">
+            <RouterLink class="btn btn--primary btn--lg" :to="{ path: '/', hash: '#program' }">Kenali program kami <span class="btn__arrow" aria-hidden="true">→</span></RouterLink>
+            <a class="link-arrow" href="#nilai">Nilai yang kami pegang <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div class="about-hero-art" aria-hidden="true">
-          <div class="about-art-orbit orbit-a"></div><div class="about-art-orbit orbit-b"></div>
-          <div class="about-art-card card-back"><span>✦</span><b>Belajar</b></div>
-          <div class="about-art-card card-front"><span>♡</span><b>Tumbuh</b><small>Bersama Infiedu</small></div>
-          <span class="about-art-star star-a">✳</span><span class="about-art-star star-b">✦</span>
+        <div class="about-collage">
+          <figure class="about-collage__a"><img src="/images/photos/kelas-welcome.webp" alt="Ruang kelas Infiedu dengan banner Welcome to Class" width="1400" height="786" /></figure>
+          <figure class="about-collage__b"><img src="/images/photos/kelas-anak.webp" alt="Area belajar anak dengan meja kecil" width="1400" height="788" loading="lazy" /></figure>
+          <div class="about-collage__note"><span aria-hidden="true">♡</span><strong>Tumbuh</strong><small>bersama Infiedu</small></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="nilai" class="about-principles layout-width">
-        <div class="about-section-heading">
-          <p class="eyebrow"><span></span> NILAI YANG KAMI PEGANG</p>
-          <h2>Belajar bukan hanya soal nilai,<br /><em>tetapi juga proses bertumbuh.</em></h2>
-        </div>
-        <div class="about-principle-grid">
-          <article v-for="(principle, index) in principles" :key="principle.title" class="about-principle-card" :class="`principle-${index + 1}`">
-            <span class="about-principle-icon">{{ principle.icon }}</span>
-            <h3>{{ principle.title }}</h3>
-            <p>{{ principle.text }}</p>
-          </article>
-        </div>
-      </section>
+    <div class="value-strip" aria-label="Ruang belajar yang personal, menyenangkan, terarah, dan berdampak">
+      <div class="container value-strip__inner">
+        <span class="value-strip__label">Ruang belajar yang</span>
+        <span v-for="(v, i) in values" :key="v" class="value-strip__item" v-reveal="i * 80">{{ v }}</span>
+      </div>
+    </div>
 
-      <section class="about-approach layout-width">
-        <div class="about-art-mark"><span>Infiedu</span><b>Learn it.<br />Love it.<br /><em>Live it.</em></b></div>
-        <div>
-          <p class="eyebrow"><span></span> CARA KAMI MENDAMPINGI</p>
-          <h2>Ruang belajar yang personal, menyenangkan, dan terarah.</h2>
-          <p>Kami mendampingi siswa memahami materi, berlatih, dan membangun kepercayaan diri. Tutor hadir untuk membantu proses belajar terasa lebih jelas dan bermakna.</p>
-          <RouterLink class="about-text-link" :to="{ path: '/', hash: '#fasilitas' }">Lihat fasilitas Infiedu <span>↗</span></RouterLink>
+    <section id="nilai" class="section container" aria-labelledby="nilai-title">
+      <div class="section-head section-head--center" v-reveal>
+        <div class="section-head__copy">
+          <p class="eyebrow">Nilai yang kami pegang</p>
+          <h2 id="nilai-title">Belajar bukan hanya soal nilai, <span class="hl">tetapi juga proses bertumbuh.</span></h2>
         </div>
-      </section>
+      </div>
+      <div class="feature-grid">
+        <article v-for="(p, i) in principles" :key="p.title" class="feature-card" v-reveal="i * 100">
+          <span class="feature-card__num" aria-hidden="true">0{{ i + 1 }}</span>
+          <span class="feature-card__icon" aria-hidden="true">{{ p.icon }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.text }}</p>
+        </article>
+      </div>
+    </section>
 
-      <section class="about-location layout-width">
-        <div class="about-location-card">
-          <div class="about-map-art">
-            <iframe title="Peta lokasi bimbel Infiedu" src="https://maps.google.com/maps?output=embed&amp;hl=id&amp;q=INFIEDU%2C+-7.2647735%2C+112.6706015&amp;z=17" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <div class="about-map-place-card">
-              <strong>INFIEDU</strong>
-              <p>Jl. Lempung Sari No. 32, Lontar, Kec. Sambikerep, Surabaya, Jawa Timur 60216</p>
-              <span class="about-map-rating"><b>★</b> 7 ulasan di Google Maps</span>
-              <a href="https://maps.app.goo.gl/LVmFyfnahMea8iJcA" target="_blank" rel="noopener noreferrer"><span>↗</span> Buka di Maps</a>
-            </div>
+    <section class="section--tight container approach" aria-labelledby="approach-title">
+      <div class="approach__mark" v-reveal>
+        <span>Infiedu</span>
+        <b>Learn it.<br />Love it.<br /><em>Live it.</em></b>
+      </div>
+      <div class="approach__copy" v-reveal="120">
+        <p class="eyebrow">Cara kami mendampingi</p>
+        <h2 id="approach-title">Ruang belajar yang personal, menyenangkan, dan terarah.</h2>
+        <p>Kami mendampingi siswa memahami materi, berlatih, dan membangun kepercayaan diri. Tutor hadir untuk membantu proses belajar terasa lebih jelas dan bermakna.</p>
+        <RouterLink class="link-arrow" :to="{ path: '/', hash: '#fasilitas' }">Lihat fasilitas Infiedu <span aria-hidden="true">→</span></RouterLink>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="lokasi-title">
+      <div class="location" v-reveal>
+        <div class="location__map">
+          <iframe title="Peta lokasi bimbel Infiedu" src="https://maps.google.com/maps?output=embed&amp;hl=id&amp;q=INFIEDU%2C+-7.2647735%2C+112.6706015&amp;z=17" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="location__copy">
+          <p class="eyebrow">Lokasi Infiedu</p>
+          <h2 id="lokasi-title">Kunjungi tempat belajar kami.</h2>
+          <div class="location__card">
+            <strong>INFIEDU</strong>
+            <p>{{ address }}</p>
+            <span class="location__rating"><b aria-hidden="true">★</b> 7 ulasan di Google Maps</span>
           </div>
-          <div class="about-location-copy">
-            <p class="eyebrow"><span></span> LOKASI INFIEDU</p>
-            <h2>Kunjungi tempat belajar kami.</h2>
-            <p>Buka Google Maps untuk melihat lokasi bimbel dan mendapatkan petunjuk arah.</p>
-            <a class="button button-dark" href="https://maps.app.goo.gl/LVmFyfnahMea8iJcA" target="_blank" rel="noopener noreferrer">Buka Google Maps <span>↗</span></a>
+          <div class="location__actions">
+            <a class="btn btn--dark" :href="mapsUrl" target="_blank" rel="noopener noreferrer">Buka Google Maps <span class="btn__arrow" aria-hidden="true">↗</span></a>
+            <a class="link-arrow" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Tanya arah via WhatsApp <span aria-hidden="true">→</span></a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="about-cta layout-width">
-        <div><p class="eyebrow"><span></span> MULAI BERSAMA INFIEDU</p><h2>Mari temukan langkah belajar yang pas.</h2></div>
-        <a class="button button-dark" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Hubungi Infiedu <span>↗</span></a>
-      </section>
-    </main>
-
-    <footer class="about-footer">
-      <RouterLink class="logo" to="/" aria-label="Kembali ke beranda"><img class="logo-symbol" :src="infieduMark" alt="" /><span class="logo-wordmark">InfiEdu</span></RouterLink>
-      <span>Teman tumbuh dan belajar.</span>
-      <RouterLink to="/">Kembali ke beranda ↑</RouterLink>
-    </footer>
+    <CtaBand title="Mari temukan langkah belajar" accent="yang pas." text="Konsultasikan kebutuhan belajar anak dan coba kelas tatap muka gratis." />
   </div>
 </template>
