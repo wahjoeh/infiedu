@@ -16,7 +16,8 @@ const programs = [
   { title: 'Bimbingan Belajar', tag: 'SD kelas 1–4', text: 'Pendampingan materi dan tugas agar pelajaran sekolah terasa lebih mudah dipahami.', to: '/program/bimbingan-belajar', image: '/images/programs/01.svg', tone: 'sun' },
   { title: 'Persiapan TKA', tag: 'SD · SMP · SMA', badge: 'BARU', text: 'Latihan soal terarah dan pembahasan materi untuk menghadapi TKA dengan percaya diri.', to: '/program/persiapan-tka', image: '/images/programs/02.svg', tone: 'cyan' },
   { title: 'English For Kids', tag: 'Program anak', text: 'Kenal kosakata, ungkapan sehari-hari, dan berani berbicara lewat aktivitas yang seru.', to: '/program/english-for-kids', image: '/images/programs/03.svg', tone: 'teal' },
-  { title: 'Persiapan SNBT', tag: 'SMA · Gap Year', text: 'Latihan soal, strategi pengerjaan, dan simulasi di website tryout Infiedu.', to: '/program/persiapan-snbt', tone: 'navy' },
+  { title: 'English For Youth', tag: 'SMP · SMA', badge: 'BARU', text: 'Latihan percakapan, grammar, dan kosakata agar remaja makin percaya diri berbahasa Inggris.', to: '/program/english-for-youth', image: '/images/programs/05.svg', tone: 'violet' },
+  { title: 'Persiapan SNBT', tag: 'SMA · Gap Year', text: 'Latihan soal, strategi pengerjaan, dan simulasi di website tryout Infiedu.', to: '/program/persiapan-snbt', image: '/images/programs/04.svg', tone: 'navy' },
 ]
 
 /* ---------- Cara belajar ---------- */
@@ -32,7 +33,7 @@ const steps = [
 const facilities = [
   { title: 'Ruang belajar nyaman', text: 'Kelas tatap muka dengan audio visual lengkap, TV, dan AC.', image: '/images/photos/kelas-utama.webp', art: '🏫' },
   { title: 'Konsultasi PR langsung', text: 'Bawa PR dan tugas sekolah, tutor siap membantu sampai paham.', image: '/images/photos/kelas-anak.webp', art: '📚' },
-  { title: 'Konselor belajar', text: 'Diskusikan kendala belajar bersama konselor yang suportif.', image: '', art: '🧑‍🏫' },
+  { title: 'Konselor belajar', text: 'Diskusikan kendala belajar bersama konselor yang suportif.', image: '/images/illustrations/konselor.svg', art: '🧑‍🏫' },
   { title: 'Website tryout', text: 'Latihan soal dan simulasi ujian melalui website tryout Infiedu.', image: '/images/photos/website-tryout.webp', art: '📝' },
 ]
 
@@ -45,9 +46,9 @@ const promos = [
 
 /* ---------- Testimoni ---------- */
 const testimonies = [
-  { name: 'Nama Siswa', level: '12 SMA', place: 'Surabaya', text: 'Dulu susah paham pelajaran, sekarang jadi lebih percaya diri karena dibimbing tutor yang sabar dan suportif.', highlight: 'Lolos jalur SNBP' },
-  { name: 'Nama Siswa', level: 'UTBK', place: 'Sidoarjo', text: 'Belajarnya enjoy, tutor ramah, dan ada pendampingan memilih prodi serta analisis nilai tryout.', highlight: 'Diterima di PTN impian' },
-  { name: 'Nama Siswa', level: '9 SMP', place: 'Malang', text: 'Klinik PR-nya sangat membantu. Kalau belum paham, tutor datang satu per satu sampai mengerti.', highlight: 'Nilai rapor naik' },
+  { name: 'Nimas', level: '12 SMA', place: 'Surabaya', text: 'Dulu susah paham pelajaran, sekarang jadi lebih percaya diri karena dibimbing tutor yang sabar dan suportif.', highlight: 'Lolos jalur SNBP' },
+  { name: 'Ali', level: 'UTBK', place: 'Surabaya', text: 'Belajarnya enjoy, tutor ramah, dan ada pendampingan memilih prodi serta analisis nilai tryout.', highlight: 'Diterima di PTN impian' },
+  { name: 'Feby', level: '9 SMP', place: 'Surabaya', text: 'Klinik PR-nya sangat membantu. Kalau belum paham, tutor datang satu per satu sampai mengerti.', highlight: 'Nilai rapor naik' },
 ]
 const activeTestimony = ref(0)
 const goTestimony = (i) => { activeTestimony.value = (i + testimonies.length) % testimonies.length }
@@ -60,9 +61,9 @@ onBeforeUnmount(stopAuto)
 /* ---------- Tutor ---------- */
 // Isi image dengan path foto di public/, contoh: '/images/tutors/nama-tutor.jpg'.
 const teachers = [
-  { name: 'Nama Tutor', subject: 'Bahasa Inggris', education: 'S1 Pendidikan Bahasa Inggris', image: '', tone: 'coral', points: ['Pengalaman mengajar di sekolah dan bimbel', 'Pengalaman menyusun materi persiapan tes'] },
-  { name: 'Nama Tutor', subject: 'Matematika', education: 'S1 Pendidikan Matematika', image: '', tone: 'cyan', points: ['Pengalaman membimbing persiapan ujian', 'Juara lomba tingkat daerah'] },
-  { name: 'Nama Tutor', subject: 'IPA', education: 'S1 Pendidikan IPA', image: '', tone: 'teal', points: ['Terbiasa dengan kurikulum nasional', 'Metode belajar berbasis praktik'] },
+  { name: 'Nova Amelia Putri', subject: 'IPA', education: 'S1 Pendidikan Biologi', image: '', tone: 'coral', points: ['Pengalaman mengajar di sekolah dan bimbel', 'Pengalaman menyusun materi persiapan tes'] },
+  { name: 'Wildan Fitroni', subject: 'Matematika', education: 'S2 Pendidikan Matematika', image: '', tone: 'cyan', points: ['Pengalaman membimbing persiapan ujian', 'Juara lomba tingkat daerah'] },
+  { name: 'Diah Amaliya', subject: 'Bahasa Inggris', education: 'S1 Pendidikan Bahasa Inggris', image: '', tone: 'teal', points: ['Terbiasa dengan kurikulum nasional', 'Metode belajar berbasis praktik'] },
 ]
 
 /* ---------- FAQ ---------- */
@@ -289,7 +290,7 @@ const marquee = ['Personal', 'Menyenangkan', 'Terarah', 'Berdampak', 'Kelas tata
           <article v-for="(t, i) in teachers" :key="i" class="tutor" :class="`tutor--${t.tone}`" v-reveal="i * 100">
             <div class="tutor__photo">
               <img v-if="t.image" :src="t.image" :alt="`Foto ${t.name}`" loading="lazy" />
-              <svg v-else viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="78" r="36" fill="rgba(255,255,255,.9)" /><path d="M30 200c4-46 34-72 70-72s66 26 70 72Z" fill="rgba(255,255,255,.9)" /></svg>
+              <img v-else class="tutor__avatar" :src="`/images/illustrations/tutor-${(i % 3) + 1}.svg`" alt="" aria-hidden="true" loading="lazy" />
               <span class="tutor__subject">{{ t.subject }}</span>
             </div>
             <div class="tutor__body">

@@ -18,6 +18,7 @@ const router = createRouter({
     { path: '/sma', name: 'sma', component: LevelView, meta: { level: 'sma' } },
     { path: '/program/bimbingan-belajar', name: 'program-bimbingan-belajar', component: ProgramView, meta: { program: 'bimbinganBelajar' } },
     { path: '/program/english-for-kids', name: 'program-english-for-kids', component: ProgramView, meta: { program: 'englishForKids' } },
+    { path: '/program/english-for-youth', name: 'program-english-for-youth', component: ProgramView, meta: { program: 'englishForYouth' } },
     { path: '/program/persiapan-tka', name: 'program-persiapan-tka', component: ProgramView, meta: { program: 'persiapanTka' } },
     { path: '/program/persiapan-snbt', name: 'program-persiapan-snbt', component: ProgramView, meta: { program: 'persiapanSnbt' } },
     { path: '/tentang-kami', name: 'about', component: AboutView },

@@ -1,13 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140" fill="none">
-  <ellipse cx="95" cy="119" rx="72" ry="12" fill="#12266C" fill-opacity=".08"/>
-  <circle cx="113" cy="62" r="52" fill="#FFF0C2"/>
-  <path d="M32 89h92l10 23H42L32 89Z" fill="#FF705D" stroke="#152763" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M42 64h92l10 24H52L42 64Z" fill="#4CC9DF" stroke="#152763" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M53 39h91l10 24H63L53 39Z" fill="#FFD15C" stroke="#152763" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M69 39v24m-11 0v25m-10 0v23" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <path d="m126 25 8-14 8 14-8 13-8-13Z" fill="#27D6C5" stroke="#152763" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M134 16v8m-4-4h8" stroke="#152763" stroke-width="2" stroke-linecap="round"/>
-  <path d="M26 42c5-8 9-8 14 0m-7-7v14" stroke="#FF705D" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="83" cy="104" r="2.5" fill="#152763"/><circle cx="94" cy="104" r="2.5" fill="#152763"/>
-  <path d="M84 110c3 4 7 4 10 0" stroke="#152763" stroke-width="2.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Bimbingan Belajar: tumpukan buku ceria, buku terbuka ABC/123, dan pensil -->
+  <path d="M36 92c-6-38 26-70 74-74 44-4 92 12 100 54 8 40-14 82-58 94-46 12-108 0-116-74Z" fill="#FFF1CC"/>
+  <circle cx="200" cy="40" r="20" fill="#FFE29A"/>
+  <ellipse cx="120" cy="184" rx="86" ry="9" fill="#152763" fill-opacity=".1"/>
+
+  <!-- buku bawah -->
+  <rect x="40" y="148" width="148" height="28" rx="7" fill="#4CC9DF" stroke="#152763" stroke-width="4"/>
+  <rect x="150" y="155" width="30" height="14" rx="3" fill="#fff"/>
+  <path d="M154 160h22M154 165h22" stroke="#B9E9F2" stroke-width="2"/>
+  <path d="M50 156v12" stroke="#fff" stroke-width="4" stroke-opacity=".7"/>
+
+  <!-- buku tengah dengan wajah -->
+  <rect x="52" y="120" width="132" height="28" rx="7" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+  <rect x="58" y="127" width="28" height="14" rx="3" fill="#fff"/>
+  <path d="M62 132h20M62 137h20" stroke="#FFD2C9" stroke-width="2"/>
+  <circle cx="124" cy="132" r="2.8" fill="#152763"/>
+  <circle cx="142" cy="132" r="2.8" fill="#152763"/>
+  <path d="M127 139c3 3.5 9 3.5 12 0" stroke="#152763" stroke-width="2.6"/>
+  <circle cx="117" cy="138" r="3.5" fill="#FFB3A6"/>
+  <circle cx="149" cy="138" r="3.5" fill="#FFB3A6"/>
+
+  <!-- buku terbuka -->
+  <path d="M120 122c-22-11-48-12-74-6V70c26-6 52-5 74 6 22-11 48-12 74-6v46c-26-6-52-5-74 6Z" fill="#22CDB9" stroke="#152763" stroke-width="4"/>
+  <path d="M120 114c-18-10-40-12-64-8V64c24-4 46-2 64 8v42Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <path d="M120 114c18-10 40-12 64-8V64c-24-4-46-2-64 8v42Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <text x="70" y="96" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22" fill="#FF6B57">ABC</text>
+  <text x="132" y="96" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22" fill="#1AA9C4">123</text>
+  <path d="M70 104h36M134 104h36" stroke="#D7DEEE" stroke-width="3"/>
+
+  <!-- pensil -->
+  <g transform="rotate(32 196 104)">
+    <rect x="188" y="58" width="16" height="62" rx="3" fill="#FFC94D" stroke="#152763" stroke-width="4"/>
+    <path d="M196 62v54" stroke="#fff" stroke-width="3" stroke-opacity=".7"/>
+    <rect x="188" y="50" width="16" height="12" rx="4" fill="#FF8FA3" stroke="#152763" stroke-width="4"/>
+    <path d="M188 120l8 16 8-16Z" fill="#F6D7B5" stroke="#152763" stroke-width="4"/>
+    <path d="M194 132l2 4 2-4Z" fill="#152763"/>
+  </g>
+
+  <!-- dekorasi -->
+  <path d="M38 40l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#FF6B57"/>
+  <path d="M210 92l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#22CDB9"/>
+  <circle cx="64" cy="30" r="4" fill="#4CC9DF"/>
+  <circle cx="22" cy="118" r="3" fill="#FFC94D"/>
+  <path d="M120 40c4-8 10-8 14 0" stroke="#FF6B57" stroke-width="3.5"/>
+  <path d="M104 30c3-6 7-6 10 0" stroke="#4CC9DF" stroke-width="3.5"/>
 </svg>

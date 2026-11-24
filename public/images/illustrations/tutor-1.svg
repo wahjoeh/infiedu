@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ilustrasi tutor (berhijab) — pengganti sementara sebelum foto asli dipasang -->
+  <path d="M26 204c4-44 32-66 74-66s70 22 74 66Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <path d="M84 140l16 22 16-22" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+  <rect x="122" y="164" width="22" height="14" rx="3" fill="#FFC94D" stroke="#152763" stroke-width="3"/>
+  <path d="M56 142c0-50 18-82 44-82s44 32 44 82c-10 12-26 18-44 18s-34-6-44-18Z" fill="#152763"/>
+  <ellipse cx="100" cy="98" rx="27" ry="31" fill="#F6C9A8" stroke="#152763" stroke-width="4"/>
+  <path d="M73 92c6-18 16-26 27-26s21 8 27 26" stroke="#152763" stroke-width="5"/>
+  <circle cx="89" cy="99" r="3.5" fill="#152763"/>
+  <circle cx="111" cy="99" r="3.5" fill="#152763"/>
+  <path d="M84 90c3-2 7-2 10 0M106 90c3-2 7-2 10 0" stroke="#152763" stroke-width="2.5"/>
+  <path d="M91 112c5 6 13 6 18 0" stroke="#152763" stroke-width="3"/>
+  <circle cx="80" cy="108" r="5" fill="#FF9C8A" fill-opacity=".55"/>
+  <circle cx="120" cy="108" r="5" fill="#FF9C8A" fill-opacity=".55"/>
+</svg>

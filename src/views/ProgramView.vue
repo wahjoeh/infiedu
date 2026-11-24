@@ -37,6 +37,21 @@ const programs = {
       { icon: '🎨', title: 'Aktivitas ramah anak', text: 'Belajar melalui kegiatan yang aktif dan menyenangkan.' },
     ],
   },
+  englishForYouth: {
+    name: 'English For Youth', eyebrow: 'BAHASA INGGRIS UNTUK REMAJA',
+    headline: 'Bahasa Inggris untuk remaja,', accent: 'makin percaya diri dipakai.',
+    description: 'Program bahasa Inggris untuk siswa SMP dan SMA: perkuat grammar dan kosakata, latih percakapan, dan bangun kepercayaan diri memakai bahasa Inggris di sekolah maupun sehari-hari.',
+    audience: 'SMP · SMA', image: '/images/programs/05.svg', tone: 'youth', visual: 'Speak up with confidence',
+    optionsHeading: 'Program English For Youth',
+    options: [
+      { tag: 'BAHASA INGGRIS REMAJA', title: 'English For Youth', text: 'Latihan percakapan, grammar, dan kosakata untuk siswa SMP dan SMA bersama tutor.', to: 'https://wa.me/6285111630006', external: true, action: 'Tanya program' },
+    ],
+    features: [
+      { icon: '🗣️', title: 'Latihan percakapan', text: 'Berlatih berbicara dalam situasi sehari-hari agar lebih lancar dan percaya diri.' },
+      { icon: '📘', title: 'Grammar & kosakata', text: 'Perkuat tata bahasa dan kosakata yang dibutuhkan untuk pelajaran di sekolah.' },
+      { icon: '🚀', title: 'Berani tampil', text: 'Latih kemampuan menyampaikan ide dalam bahasa Inggris, misalnya saat presentasi.' },
+    ],
+  },
   persiapanTka: {
     name: 'Persiapan TKA', eyebrow: 'LATIHAN & PENGUATAN MATERI TKA',
     headline: 'Persiapan lebih terarah', accent: 'untuk menghadapi TKA.',
@@ -87,7 +102,7 @@ const programs = {
     name: 'Persiapan SNBT', eyebrow: 'STRATEGI & LATIHAN MENUJU PTN',
     headline: 'Susun strategi belajar', accent: 'menuju target perguruan tinggi.',
     description: 'Persiapan SNBT melalui latihan soal, pembahasan strategi pengerjaan, dan simulasi tryout untuk membantu siswa belajar dengan lebih terarah.',
-    audience: 'SMA · Gap Year', image: '/images/programs/03.svg', tone: 'snbt', visual: 'Rancang langkah menuju PTN',
+    audience: 'SMA · Gap Year', image: '/images/programs/04.svg', tone: 'snbt', visual: 'Rancang langkah menuju PTN',
     features: [
       { icon: '📝', title: 'Latihan soal SNBT', text: 'Asah kemampuan melalui latihan soal dan pembahasan terarah.' },
       { icon: '🧭', title: 'Strategi pengerjaan', text: 'Kenali pendekatan untuk mengatur waktu dan menyelesaikan soal.' },
@@ -99,12 +114,13 @@ const program = computed(() => programs[route.meta.program] ?? programs.bimbinga
 const tones = {
   coral: { tone: 'var(--coral)', soft: 'var(--coral-50)' },
   english: { tone: 'var(--teal-600)', soft: 'var(--teal-50)' },
+  youth: { tone: 'var(--violet)', soft: 'var(--violet-50)' },
   blue: { tone: '#1aa9c4', soft: 'var(--cyan-50)' },
   snbt: { tone: 'var(--navy-700)', soft: 'var(--lilac-50)' },
 }
 const toneStyle = computed(() => ({ '--tone': tones[program.value.tone]?.tone, '--tone-soft': tones[program.value.tone]?.soft }))
 const tablePrice = (level) => prices[`tka-${level}`]
-const planPriceKey = { bimbinganBelajar: 'bimbel-sd', englishForKids: 'english-for-kids', persiapanSnbt: 'snbt-sma' }
+const planPriceKey = { bimbinganBelajar: 'bimbel-sd', englishForKids: 'english-for-kids', englishForYouth: 'english-for-youth', persiapanSnbt: 'snbt-sma' }
 const planPrice = computed(() => prices[planPriceKey[route.meta.program]] ?? prices['bimbel-sd'])
 </script>
 

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Persiapan SNBT / SMA: kampus impian, toga, dan roket Infiedu -->
+  <path d="M30 104c-4-46 36-80 90-82 52-2 94 28 96 72 2 48-36 88-94 90-54 2-88-30-92-80Z" fill="#E9EBFF"/>
+  <ellipse cx="128" cy="186" rx="86" ry="8" fill="#152763" fill-opacity=".1"/>
+
+  <!-- jejak roket -->
+  <path d="M18 168c10-30 22-52 40-72" stroke="#4CC9DF" stroke-width="4" stroke-dasharray="2 10"/>
+
+  <!-- gedung kampus -->
+  <rect x="58" y="168" width="140" height="14" rx="4" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <rect x="68" y="158" width="120" height="12" rx="3" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <rect x="74" y="114" width="108" height="46" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <rect x="84" y="118" width="12" height="40" rx="2" fill="#4CC9DF" stroke="#152763" stroke-width="3"/>
+  <rect x="106" y="118" width="12" height="40" rx="2" fill="#4CC9DF" stroke="#152763" stroke-width="3"/>
+  <rect x="138" y="118" width="12" height="40" rx="2" fill="#4CC9DF" stroke="#152763" stroke-width="3"/>
+  <rect x="160" y="118" width="12" height="40" rx="2" fill="#4CC9DF" stroke="#152763" stroke-width="3"/>
+  <path d="M122 158v-24a6 6 0 0 1 12 0v24" fill="#152763"/>
+  <path d="M64 116l64-36 64 36Z" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+  <circle cx="128" cy="103" r="7" fill="#FFC94D" stroke="#152763" stroke-width="3"/>
+  <!-- bendera -->
+  <path d="M128 80V58" stroke="#152763" stroke-width="3.5"/>
+  <path d="M129 58h22l-5 7 5 7h-22Z" fill="#22CDB9" stroke="#152763" stroke-width="3"/>
+  <text x="137" y="69.5" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="7" fill="#fff">PTN</text>
+
+  <!-- toga -->
+  <g transform="rotate(-10 196 50)">
+    <path d="M182 54v12c0 6 30 6 30 0V54" fill="#26338A" stroke="#152763" stroke-width="4"/>
+    <path d="M166 50l31-14 31 14-31 14Z" fill="#152763"/>
+    <path d="M197 50l22 6v16" stroke="#FFC94D" stroke-width="3"/>
+    <circle cx="219" cy="76" r="4" fill="#FFC94D"/>
+  </g>
+
+  <!-- roket -->
+  <g transform="rotate(42 58 82)">
+    <path d="M58 46c12 10 16 26 14 44H44c-2-18 2-34 14-44Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+    <path d="M58 46c6 5 10 11 12 18H46c2-7 6-13 12-18Z" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+    <circle cx="58" cy="74" r="6" fill="#4CC9DF" stroke="#152763" stroke-width="3"/>
+    <path d="M44 80l-10 12 12-2M72 80l10 12-12-2" fill="#22CDB9" stroke="#152763" stroke-width="3.5"/>
+    <path d="M50 92c0 10 4 16 8 20 4-4 8-10 8-20" fill="#FFC94D" stroke="#152763" stroke-width="3.5"/>
+  </g>
+
+  <!-- dekorasi -->
+  <path d="M96 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#FFC94D"/>
+  <path d="M210 120l3 6 6 3-6 3-3 6-3-6-6-3 6-3Z" fill="#FF6B57"/>
+  <circle cx="160" cy="22" r="4" fill="#4CC9DF"/>
+  <circle cx="22" cy="70" r="3.5" fill="#22CDB9"/>
+</svg>

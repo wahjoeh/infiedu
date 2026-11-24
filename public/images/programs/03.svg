@@ -1,17 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140" fill="none">
-  <ellipse cx="93" cy="121" rx="73" ry="10" fill="#12266C" fill-opacity=".08"/>
-  <circle cx="94" cy="61" r="53" fill="#FDE9E3"/>
-  <path d="M29 103c2-18 13-28 31-28s29 10 31 28v12H29v-12Z" fill="#4CC9DF" stroke="#152763" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M102 101c2-18 13-28 31-28s29 10 31 28v14h-62v-14Z" fill="#FF705D" stroke="#152763" stroke-width="4" stroke-linejoin="round"/>
-  <circle cx="60" cy="52" r="22" fill="#F3C7A8" stroke="#152763" stroke-width="4"/>
-  <path d="M38 51c1-17 12-26 25-24 12 2 19 11 18 24-5-7-12-11-22-11-7 0-14 4-21 11Z" fill="#152763"/>
-  <circle cx="133" cy="50" r="22" fill="#E8B897" stroke="#152763" stroke-width="4"/>
-  <path d="M111 48c1-16 11-25 24-24 12 1 20 10 20 24-6-8-14-11-22-10-8 0-15 4-22 10Z" fill="#152763"/>
-  <circle cx="53" cy="53" r="2" fill="#152763"/><circle cx="67" cy="53" r="2" fill="#152763"/>
-  <path d="M54 61c4 4 8 4 12 0" stroke="#152763" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="126" cy="51" r="2" fill="#152763"/><circle cx="140" cy="51" r="2" fill="#152763"/>
-  <path d="M127 59c4 4 8 4 12 0" stroke="#152763" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M76 102c4-8 10-12 18-12s14 4 18 12l-18 12-18-12Z" fill="#fff" stroke="#152763" stroke-width="3" stroke-linejoin="round"/>
-  <path d="m94 91 1 22" stroke="#27BDB9" stroke-width="2.5"/>
-  <path d="M94 24c4-7 8-7 12 0m-6-6v12" stroke="#FFD15C" stroke-width="3" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- English For Kids: dua anak saling menyapa dengan balon kata -->
+  <path d="M28 108c-6-46 30-80 84-86 56-6 102 22 106 68 4 48-34 88-94 92-50 4-90-24-96-74Z" fill="#FFE6DE"/>
+  <ellipse cx="120" cy="188" rx="90" ry="8" fill="#152763" fill-opacity=".1"/>
+
+  <!-- balon kata -->
+  <path d="M22 30a14 14 0 0 1 14-14h50a14 14 0 0 1 14 14v12a14 14 0 0 1-14 14H56l-12 12 2-12H36a14 14 0 0 1-14-14Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <text x="61" y="44" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#FF6B57">Hi!</text>
+  <path d="M132 22a14 14 0 0 1 14-14h66a14 14 0 0 1 14 14v12a14 14 0 0 1-14 14h-14l2 12-12-12h-42a14 14 0 0 1-14-14Z" fill="#FFC94D" stroke="#152763" stroke-width="4"/>
+  <text x="179" y="36" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="17" fill="#152763">Hello!</text>
+
+  <!-- anak 1 -->
+  <path d="M36 186c2-34 18-52 44-52s42 18 44 52Z" fill="#22CDB9" stroke="#152763" stroke-width="4"/>
+  <path d="M66 136l14 14 14-14" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <path d="M52 160v26" stroke="#fff" stroke-width="4" stroke-opacity=".5"/>
+  <circle cx="80" cy="106" r="27" fill="#F6C9A8" stroke="#152763" stroke-width="4"/>
+  <path d="M53 104c-2-20 12-32 28-32 18 0 30 14 26 32-4-8-12-12-20-12-6 6-18 10-34 12Z" fill="#152763"/>
+  <circle cx="70" cy="110" r="3" fill="#152763"/>
+  <circle cx="90" cy="110" r="3" fill="#152763"/>
+  <path d="M72 120c4 5 12 5 16 0" stroke="#152763" stroke-width="3"/>
+  <circle cx="63" cy="118" r="4" fill="#FF9C8A" fill-opacity=".7"/>
+  <circle cx="97" cy="118" r="4" fill="#FF9C8A" fill-opacity=".7"/>
+  <!-- tangan melambai -->
+  <path d="M118 160c8-6 12-16 12-26" stroke="#152763" stroke-width="12"/>
+  <path d="M118 160c8-6 12-16 12-26" stroke="#22CDB9" stroke-width="5"/>
+  <circle cx="131" cy="128" r="9" fill="#F6C9A8" stroke="#152763" stroke-width="4"/>
+
+  <!-- anak 2 -->
+  <path d="M132 186c2-32 16-48 40-48s38 16 40 48Z" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+  <path d="M160 140h24" stroke="#152763" stroke-width="4"/>
+  <circle cx="200" cy="166" r="5" fill="#fff" fill-opacity=".7"/>
+  <circle cx="190" cy="176" r="3" fill="#fff" fill-opacity=".7"/>
+  <circle cx="146" cy="104" r="11" fill="#152763"/>
+  <circle cx="198" cy="104" r="11" fill="#152763"/>
+  <circle cx="172" cy="110" r="25" fill="#E2A983" stroke="#152763" stroke-width="4"/>
+  <path d="M147 108c-2-20 10-30 25-30s28 10 25 30c-6-10-14-14-25-14-10 0-18 4-25 14Z" fill="#152763"/>
+  <path d="M178 80l10-6 2 10Z" fill="#FFC94D" stroke="#152763" stroke-width="3"/>
+  <circle cx="163" cy="114" r="3" fill="#152763"/>
+  <circle cx="181" cy="114" r="3" fill="#152763"/>
+  <path d="M164 123c4 5 10 5 14 0" stroke="#152763" stroke-width="3"/>
+  <circle cx="156" cy="121" r="4" fill="#FF8A75" fill-opacity=".6"/>
+  <circle cx="188" cy="121" r="4" fill="#FF8A75" fill-opacity=".6"/>
+
+  <!-- dekorasi -->
+  <path d="M112 70l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#4CC9DF"/>
+  <circle cx="20" cy="104" r="4" fill="#22CDB9"/>
+  <circle cx="226" cy="88" r="3.5" fill="#FF6B57"/>
+  <text x="208" y="134" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#4CC9DF" transform="rotate(12 214 130)">a</text>
+  <text x="14" y="146" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#FFC94D" transform="rotate(-12 20 140)">b</text>
 </svg>

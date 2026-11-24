@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ilustrasi tutor (jas lab) — pengganti sementara sebelum foto asli dipasang -->
+  <path d="M26 204c4-44 32-66 74-66s70 22 74 66Z" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <path d="M78 142l22 60 22-60" fill="#22CDB9" stroke="#152763" stroke-width="4"/>
+  <path d="M78 142l12 26-6 6M122 142l-12 26 6 6" stroke="#152763" stroke-width="3.5"/>
+  <rect x="126" y="166" width="22" height="20" rx="3" fill="#F4F6FB" stroke="#152763" stroke-width="3"/>
+  <path d="M132 160v14" stroke="#FF6B57" stroke-width="4"/>
+  <rect x="88" y="122" width="24" height="22" fill="#F6C9A8" stroke="#152763" stroke-width="4"/>
+  <circle cx="100" cy="42" r="16" fill="#152763"/>
+  <circle cx="100" cy="94" r="34" fill="#F6C9A8" stroke="#152763" stroke-width="4"/>
+  <path d="M64 96c-4-30 14-46 36-46s40 16 36 46c-2-12-8-22-18-26-6 8-24 14-54 26Z" fill="#152763"/>
+  <circle cx="88" cy="100" r="3.5" fill="#152763"/>
+  <circle cx="112" cy="100" r="3.5" fill="#152763"/>
+  <path d="M91 113c5 6 13 6 18 0" stroke="#152763" stroke-width="3"/>
+  <circle cx="78" cy="109" r="5" fill="#FF9C8A" fill-opacity=".55"/>
+  <circle cx="122" cy="109" r="5" fill="#FF9C8A" fill-opacity=".55"/>
+  <path d="M112 34l10-6 2 11Z" fill="#FFC94D" stroke="#152763" stroke-width="3"/>
+</svg>

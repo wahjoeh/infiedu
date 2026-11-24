@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Konselor belajar: konselor & siswa berdiskusi di meja -->
+  <rect width="320" height="220" fill="#DDF6F1"/>
+  <circle cx="276" cy="34" r="54" fill="#C4EFE7"/>
+  <circle cx="24" cy="196" r="70" fill="#C4EFE7"/>
+  <g transform="translate(58 6) scale(.64)">
+  <rect x="34" y="26" width="56" height="44" rx="6" fill="#fff" stroke="#152763" stroke-width="3"/>
+  <path d="M44 58l10-12 8 8 6-6 12 10" stroke="#22CDB9" stroke-width="3"/>
+  <circle cx="74" cy="38" r="4" fill="#FFC94D"/>
+
+  <!-- balon kata -->
+  <path d="M126 16h44a12 12 0 0 1 12 12v14a12 12 0 0 1-12 12h-24l-12 10 2-10h-10a12 12 0 0 1-12-12V28a12 12 0 0 1 12-12Z" fill="#fff" stroke="#152763" stroke-width="3.5"/>
+  <path d="M148 46c-10-6-14-11-14-16a6 6 0 0 1 14-2 6 6 0 0 1 14 2c0 5-4 10-14 16Z" fill="#FF6B57"/>
+  <path d="M232 30h34a12 12 0 0 1 12 12v8a12 12 0 0 1-12 12h-4l2 10-12-10h-20a12 12 0 0 1-12-12v-8a12 12 0 0 1 12-12Z" fill="#FFC94D" stroke="#152763" stroke-width="3.5"/>
+  <path d="M249 54v-2c0-3-5-5-5-10a5 5 0 0 1 10 0c0 5-5 7-5 10v2" stroke="#152763" stroke-width="3"/>
+
+  <!-- konselor (berhijab) -->
+  <path d="M68 168c2-34 20-50 46-50s44 16 46 50Z" fill="#26338A" stroke="#152763" stroke-width="4"/>
+  <path d="M80 130c0-30 14-50 34-50s34 20 34 50c-8 10-20 14-34 14s-26-4-34-14Z" fill="#FF6B57" stroke="#152763" stroke-width="4"/>
+  <ellipse cx="114" cy="98" rx="19" ry="22" fill="#F6C9A8" stroke="#152763" stroke-width="3.5"/>
+  <circle cx="106" cy="98" r="2.8" fill="#152763"/>
+  <circle cx="122" cy="98" r="2.8" fill="#152763"/>
+  <path d="M108 108c3 4 9 4 12 0" stroke="#152763" stroke-width="2.8"/>
+  <circle cx="100" cy="105" r="3.5" fill="#FF9C8A" fill-opacity=".6"/>
+  <circle cx="128" cy="105" r="3.5" fill="#FF9C8A" fill-opacity=".6"/>
+
+  <!-- siswa -->
+  <path d="M176 168c2-30 16-44 38-44s36 14 38 44Z" fill="#FFC94D" stroke="#152763" stroke-width="4"/>
+  <path d="M202 126l12 10 12-10" fill="#fff" stroke="#152763" stroke-width="3.5"/>
+  <circle cx="214" cy="100" r="24" fill="#E2A983" stroke="#152763" stroke-width="4"/>
+  <path d="M190 98c-2-18 10-28 25-28 16 0 26 12 23 28-6-8-14-10-22-8-8 4-16 6-26 8Z" fill="#152763"/>
+  <circle cx="206" cy="104" r="2.8" fill="#152763"/>
+  <circle cx="222" cy="104" r="2.8" fill="#152763"/>
+  <path d="M208 113c3 3 9 3 12 0" stroke="#152763" stroke-width="2.8"/>
+
+  <!-- meja -->
+  <rect x="36" y="162" width="248" height="18" rx="6" fill="#fff" stroke="#152763" stroke-width="4"/>
+  <rect x="50" y="180" width="220" height="40" fill="#F4F6FB" stroke="#152763" stroke-width="4"/>
+  <!-- cangkir -->
+  <path d="M70 140h22v18a6 6 0 0 1-6 6H76a6 6 0 0 1-6-6Z" fill="#4CC9DF" stroke="#152763" stroke-width="3.5"/>
+  <path d="M92 146h4a5 5 0 0 1 0 10h-4" stroke="#152763" stroke-width="3.5"/>
+  <path d="M76 132c2-4-2-6 0-10M85 132c2-4-2-6 0-10" stroke="#9AA6C9" stroke-width="2.5"/>
+  <!-- buku catatan -->
+  <path d="M146 164l6-16h44l-6 16Z" fill="#fff" stroke="#152763" stroke-width="3.5"/>
+  <path d="M158 154h28M156 159h26" stroke="#C9D3EA" stroke-width="2.5"/>
+  <!-- pensil -->
+  <path d="M236 160l26-10" stroke="#152763" stroke-width="8"/>
+  <path d="M236 160l26-10" stroke="#FF6B57" stroke-width="3"/>
+
+  <path d="M300 112l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#FF6B57"/>
+  <circle cx="190" cy="30" r="4" fill="#4CC9DF"/>
+  </g>
+</svg>

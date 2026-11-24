@@ -1,7 +1,7 @@
 // Data yang dipakai bersama oleh semua halaman (navbar, footer, kontak).
 export const whatsappUrl = 'https://wa.me/6285111630006'
 export const mapsUrl = 'https://maps.app.goo.gl/LVmFyfnahMea8iJcA'
-export const email = 'info@infiedu.id'
+export const email = 'infiedusby@gmail.com'
 export const address = 'Jl. Lempung Sari No. 32, Lontar, Kec. Sambikerep, Surabaya, Jawa Timur 60216'
 
 // Daftar harga "mulai dari" — satu sumber untuk halaman jenjang dan halaman program.
@@ -9,6 +9,7 @@ export const address = 'Jl. Lempung Sari No. 32, Lontar, Kec. Sambikerep, Suraba
 export const prices = {
   'bimbel-sd': { large: 'Rp150.000', private: 'Rp450.000' },
   'english-for-kids': { large: 'Rp250.000', private: 'Rp450.000' },
+  'english-for-youth': { large: 'Rp300.000', private: 'Rp500.000' },
   'tka-sd': { large: 'Rp220.000', private: 'Rp800.000' },
   'tka-smp': { large: 'Rp250.000', private: 'Rp1.000.000' },
   'tka-sma': { large: 'Rp260.000', private: 'Rp1.100.000' },
@@ -25,6 +26,7 @@ export const levelMenu = [
 export const programMenu = [
   { label: 'Bimbingan Belajar', note: 'SD kelas 1–4', to: '/program/bimbingan-belajar' },
   { label: 'English For Kids', note: 'Bahasa Inggris anak', to: '/program/english-for-kids' },
+  { label: 'English For Youth', note: 'Bahasa Inggris remaja', to: '/program/english-for-youth' },
   { label: 'Persiapan TKA', note: 'SD · SMP · SMA', to: '/program/persiapan-tka' },
   { label: 'Persiapan SNBT', note: 'Menuju PTN', to: '/program/persiapan-snbt' },
 ]

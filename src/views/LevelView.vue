@@ -93,8 +93,8 @@ const pages = {
       { icon: '🎯', title: 'Strategi belajar', text: 'Kenali prioritas materi dan susun kebiasaan belajar yang konsisten.' },
     ],
     offeringsEyebrow: 'PROGRAM SMP',
-    offeringsHeading: 'Satu program,',
-    offeringsAccent: 'fokus persiapan TKA.',
+    offeringsHeading: 'Dua program untuk',
+    offeringsAccent: 'masa SMP.',
     offerings: [
       {
         id: 'tka-smp',
@@ -113,6 +113,22 @@ const pages = {
           { title: 'Akses website tryout', large: 'Akses latihan dan simulasi tryout', private: 'Akses latihan dan simulasi tryout' },
         ],
       },
+      {
+        id: 'english-for-youth',
+        title: 'English For Youth',
+        kicker: 'BAHASA INGGRIS UNTUK REMAJA',
+        text: 'Perkuat grammar dan kosakata, latih percakapan, dan bangun kepercayaan diri memakai bahasa Inggris di sekolah maupun sehari-hari.',
+        points: ['Latihan percakapan sehari-hari', 'Grammar dan kosakata sesuai jenjang SMP', 'Berani menyampaikan ide dalam bahasa Inggris'],
+        visual: 'Speak up with confidence',
+        illustration: '/images/programs/05.svg',
+        tone: 'youth',
+        tableTone: 'english',
+        comparisonRows: [
+          { title: 'Latihan percakapan', large: 'Berlatih bicara bersama teman sekelas', private: 'Kesempatan latihan bicara lebih banyak' },
+          { title: 'Grammar & kosakata', large: 'Belajar materi bersama kelompok', private: 'Materi mengikuti kemampuan siswa' },
+          { title: 'Pendampingan tutor', large: 'Diskusi dan tanya jawab bersama tutor', private: 'Fokus tutor pada kebutuhan siswa' },
+        ],
+      },
     ],
   },
   sma: {
@@ -123,7 +139,7 @@ const pages = {
     description: 'Pilih persiapan TKA atau SNBT dengan latihan dan pendampingan yang disesuaikan dengan target belajar siswa SMA.',
     grade: 'Kelas 10–12',
     visualTitle: 'Fokus pada target masa depan',
-    illustration: '/images/programs/03.svg',
+    illustration: '/images/programs/04.svg',
     tone: 'sage',
     focuses: [
       { icon: '📚', title: 'Pendalaman materi', text: 'Belajar konsep inti dan latihan soal untuk mendukung pelajaran di sekolah.' },
@@ -131,7 +147,7 @@ const pages = {
       { icon: '🧭', title: 'Rencana belajar', text: 'Atur target akademik dan langkah persiapan secara bertahap.' },
     ],
     offeringsEyebrow: 'PILIH PROGRAM SMA',
-    offeringsHeading: 'Persiapan TKA dan SNBT',
+    offeringsHeading: 'TKA, SNBT, dan bahasa Inggris',
     offeringsAccent: 'sesuai targetmu.',
     offerings: [
       {
@@ -158,13 +174,29 @@ const pages = {
         text: 'Susun strategi belajar dan berlatih soal untuk mendukung persiapan seleksi masuk perguruan tinggi.',
         points: ['Latihan soal persiapan SNBT', 'Pembahasan strategi pengerjaan', 'Gunakan website tryout untuk simulasi'],
         visual: 'Rancang langkah menuju PTN',
-        illustration: '/images/programs/03.svg',
+        illustration: '/images/programs/04.svg',
         tone: 'sage',
         tableTone: 'snbt',
         comparisonRows: [
           { title: 'Latihan SNBT', large: 'Latihan dan diskusi soal dalam kelompok', private: 'Latihan terarah sesuai kebutuhan' },
           { title: 'Strategi pengerjaan', large: 'Bahas pendekatan soal bersama tutor', private: 'Fokus pada strategi individual' },
           { title: 'Simulasi tryout', large: 'Gunakan website tryout Infiedu', private: 'Gunakan website tryout Infiedu' },
+        ],
+      },
+      {
+        id: 'english-for-youth',
+        title: 'English For Youth',
+        kicker: 'BAHASA INGGRIS UNTUK REMAJA',
+        text: 'Perkuat grammar dan kosakata, latih percakapan, dan bangun kepercayaan diri memakai bahasa Inggris di sekolah maupun sehari-hari.',
+        points: ['Latihan percakapan sehari-hari', 'Grammar dan kosakata sesuai jenjang SMA', 'Berani menyampaikan ide dalam bahasa Inggris'],
+        visual: 'Speak up with confidence',
+        illustration: '/images/programs/05.svg',
+        tone: 'youth',
+        tableTone: 'english',
+        comparisonRows: [
+          { title: 'Latihan percakapan', large: 'Berlatih bicara bersama teman sekelas', private: 'Kesempatan latihan bicara lebih banyak' },
+          { title: 'Grammar & kosakata', large: 'Belajar materi bersama kelompok', private: 'Materi mengikuti kemampuan siswa' },
+          { title: 'Pendampingan tutor', large: 'Diskusi dan tanya jawab bersama tutor', private: 'Fokus tutor pada kebutuhan siswa' },
         ],
       },
     ],
@@ -182,6 +214,7 @@ const tones = {
   coral: { tone: 'var(--coral)', soft: 'var(--coral-50)' },
   blue: { tone: '#1aa9c4', soft: 'var(--cyan-50)' },
   sage: { tone: 'var(--teal-600)', soft: 'var(--teal-50)' },
+  youth: { tone: 'var(--violet)', soft: 'var(--violet-50)' },
 }
 const toneStyle = (name) => ({ '--tone': tones[name]?.tone, '--tone-soft': tones[name]?.soft })
 const generalPrice = computed(() => prices[`tka-${route.meta.level ?? 'sd'}`])
