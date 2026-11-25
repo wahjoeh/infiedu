@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ComparisonTable from '../components/ComparisonTable.vue'
 import CtaBand from '../components/CtaBand.vue'
+import HeroVideo from '../components/HeroVideo.vue'
 import { prices, whatsappUrl } from '../data/site'
 
 const route = useRoute()
@@ -107,6 +108,7 @@ const programs = {
     headline: 'Susun strategi belajar', accent: 'menuju target perguruan tinggi.',
     description: 'Persiapan SNBT melalui latihan soal, pembahasan strategi pengerjaan, dan simulasi tryout untuk membantu siswa belajar dengan lebih terarah.',
     audience: 'SMA · Gap Year', image: '/images/programs/04.svg', tone: 'snbt', visual: 'Rancang langkah menuju PTN',
+    video: '/videos/promo-tka-sma-snbt.mp4', videoPoster: '/videos/promo-tka-sma-snbt-poster.webp',
     features: [
       { icon: '📝', title: 'Latihan soal SNBT', text: 'Asah kemampuan melalui latihan soal dan pembahasan terarah.' },
       { icon: '🧭', title: 'Strategi pengerjaan', text: 'Kenali pendekatan untuk mengatur waktu dan menyelesaikan soal.' },
@@ -117,19 +119,8 @@ const programs = {
 const program = computed(() => programs[route.meta.program] ?? programs.bimbinganBelajar)
 
 /* ---------- Video promosi di hero ---------- */
-const videoEl = ref(null)
 const videoFailed = ref(false)
-const withSound = ref(false)
-const reduceMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-function playWithSound() {
-  withSound.value = true
-  const v = videoEl.value
-  if (!v) return
-  v.muted = false
-  v.currentTime = 0
-  v.play().catch(() => {})
-}
-watch(() => program.value.video, () => { videoFailed.value = false; withSound.value = false })
+watch(() => program.value.video, () => { videoFailed.value = false })
 const tones = {
   coral: { tone: 'var(--coral)', soft: 'var(--coral-50)' },
   english: { tone: 'var(--teal-600)', soft: 'var(--teal-50)' },
@@ -158,29 +149,7 @@ const planPrice = computed(() => prices[planPriceKey[route.meta.program]] ?? pri
             <a class="link-arrow" href="#manfaat">Apa yang didapat <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div v-if="program.video && !videoFailed" class="hero-video">
-          <div class="hero-video__frame">
-            <video
-              ref="videoEl"
-              :key="program.video"
-              :src="program.video"
-              :poster="program.videoPoster"
-              :controls="withSound"
-              :autoplay="!reduceMotion"
-              :muted="!withSound"
-              loop
-              playsinline
-              preload="metadata"
-              :aria-label="`Video promosi ${program.name} Infiedu`"
-              @error="videoFailed = true"
-            ></video>
-            <button v-if="!withSound" type="button" class="hero-video__sound" @click="playWithSound">
-              <span aria-hidden="true">▶</span> Tonton dengan suara
-            </button>
-          </div>
-          <div class="hero-video__badge" aria-hidden="true"><b>▶</b><span><small>Video promosi</small>{{ program.name }} Infiedu</span></div>
-          <span class="hero-art__spark hero-art__spark--a" aria-hidden="true">✳</span><span class="hero-art__spark hero-art__spark--b" aria-hidden="true">✦</span>
-        </div>
+        <HeroVideo v-if="program.video && !videoFailed" :key="program.video" :src="program.video" :poster="program.videoPoster" :label="program.name" @failed="videoFailed = true" />
         <div v-else class="hero-art" aria-hidden="true">
           <img :src="program.image" alt="" />
           <div class="hero-art__caption"><b>✦</b><span><small>{{ program.name }}</small>{{ program.visual }}</span></div>

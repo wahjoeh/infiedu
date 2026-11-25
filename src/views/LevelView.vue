@@ -1,8 +1,9 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ComparisonTable from '../components/ComparisonTable.vue'
 import CtaBand from '../components/CtaBand.vue'
+import HeroVideo from '../components/HeroVideo.vue'
 import { prices, whatsappUrl } from '../data/site'
 
 const route = useRoute()
@@ -140,6 +141,8 @@ const pages = {
     grade: 'Kelas 10–12',
     visualTitle: 'Fokus pada target masa depan',
     illustration: '/images/programs/04.svg',
+    // Video promosi: taruh file di public/videos/. Jika file tidak ada, ilustrasi tetap tampil.
+    video: '/videos/promo-tka-sma-snbt.mp4', videoPoster: '/videos/promo-tka-sma-snbt-poster.webp',
     tone: 'sage',
     focuses: [
       { icon: '📚', title: 'Pendalaman materi', text: 'Belajar konsep inti dan latihan soal untuk mendukung pelajaran di sekolah.' },
@@ -203,6 +206,8 @@ const pages = {
   },
 }
 const page = computed(() => pages[route.meta.level] ?? pages.sd)
+const videoFailed = ref(false)
+watch(() => page.value.video, () => { videoFailed.value = false })
 const comparisonRows = [
   { title: 'Format belajar', large: 'Belajar tatap muka bersama kelompok', private: 'Belajar tatap muka privat 1 siswa' },
   { title: 'Pendampingan tutor', large: 'Pembahasan materi bersama teman sekelas', private: 'Fokus tutor mengikuti kebutuhan siswa' },
@@ -237,7 +242,8 @@ const generalPrice = computed(() => prices[`tka-${route.meta.level ?? 'sd'}`])
             <a class="link-arrow" href="#fokus">Lihat program {{ page.label }} <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
+        <HeroVideo v-if="page.video && !videoFailed" :key="page.video" :src="page.video" :poster="page.videoPoster" :label="`Jenjang ${page.label}`" @failed="videoFailed = true" />
+        <div v-else class="hero-art" aria-hidden="true">
           <img :src="page.illustration" alt="" />
           <div class="hero-art__caption"><b>✦</b><span><small>Infiedu {{ page.label }}</small>{{ page.visualTitle }}</span></div>
           <span class="hero-art__spark hero-art__spark--a">✳</span><span class="hero-art__spark hero-art__spark--b">✦</span>
