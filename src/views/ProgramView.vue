@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ComparisonTable from '../components/ComparisonTable.vue'
 import CtaBand from '../components/CtaBand.vue'
@@ -12,6 +12,8 @@ const programs = {
     headline: 'Bimbingan belajar', accent: 'untuk kelas 1–4 SD.',
     description: 'Pendampingan tatap muka untuk membantu siswa kelas 1–4 memahami materi sekolah, mengerjakan tugas, dan membangun kebiasaan belajar yang baik.',
     audience: 'SD · Kelas 1–4', image: '/images/programs/01.svg', tone: 'coral', visual: 'Belajar selangkah demi selangkah',
+    // Video promosi: taruh file di public/videos/. Jika file tidak ada, ilustrasi tetap tampil.
+    video: '/videos/promo-bimbel-sd.mp4', videoPoster: '/videos/promo-bimbel-sd-poster.webp',
     optionsHeading: 'Bimbingan belajar kelas 1–4',
     options: [
       { tag: 'SEKOLAH DASAR', title: 'Bimbingan Belajar Kelas 1–4', text: 'Pendampingan materi sekolah, tugas, dan kebiasaan belajar untuk siswa kelas 1 sampai 4.', to: '/sd#bimbel-sd', action: 'Lihat program SD' },
@@ -27,6 +29,7 @@ const programs = {
     headline: 'Belajar bahasa Inggris', accent: 'dengan cara yang menyenangkan.',
     description: 'Kegiatan belajar bahasa Inggris yang ramah anak untuk mengenal kosakata, memahami ungkapan sehari-hari, dan berlatih berbicara.',
     audience: 'Program anak', image: '/images/programs/03.svg', tone: 'english', visual: 'Fun English, happy learning',
+    video: '/videos/promo-english-for-kids.mp4', videoPoster: '/videos/promo-english-for-kids-poster.webp',
     optionsHeading: 'Program English For Kids',
     options: [
       { tag: 'BAHASA INGGRIS', title: 'English For Kids', text: 'Belajar kosakata, ungkapan sehari-hari, dan percakapan dengan aktivitas ramah anak.', to: 'https://wa.me/6285111630006', external: true, action: 'Tanya program' },
@@ -57,6 +60,7 @@ const programs = {
     headline: 'Persiapan lebih terarah', accent: 'untuk menghadapi TKA.',
     description: 'Latihan soal dan penguatan materi bersama tutor untuk membantu siswa memahami bentuk soal dan mengenali materi yang perlu diperdalam.',
     audience: 'SD · SMP · SMA', image: '/images/programs/02.svg', tone: 'blue', visual: 'Siap menghadapi TKA',
+    video: '/videos/promo-tka.mp4', videoPoster: '/videos/promo-tka-poster.webp',
     optionsHeading: 'Pilih jenjang persiapan TKA',
     options: [
       { tag: 'SEKOLAH DASAR', title: 'TKA SD', text: 'Persiapan dan latihan TKA untuk siswa Sekolah Dasar.', to: '#tka-sd-table', action: 'Lihat tabel TKA SD' },
@@ -111,6 +115,21 @@ const programs = {
   },
 }
 const program = computed(() => programs[route.meta.program] ?? programs.bimbinganBelajar)
+
+/* ---------- Video promosi di hero ---------- */
+const videoEl = ref(null)
+const videoFailed = ref(false)
+const withSound = ref(false)
+const reduceMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+function playWithSound() {
+  withSound.value = true
+  const v = videoEl.value
+  if (!v) return
+  v.muted = false
+  v.currentTime = 0
+  v.play().catch(() => {})
+}
+watch(() => program.value.video, () => { videoFailed.value = false; withSound.value = false })
 const tones = {
   coral: { tone: 'var(--coral)', soft: 'var(--coral-50)' },
   english: { tone: 'var(--teal-600)', soft: 'var(--teal-50)' },
@@ -139,7 +158,30 @@ const planPrice = computed(() => prices[planPriceKey[route.meta.program]] ?? pri
             <a class="link-arrow" href="#manfaat">Apa yang didapat <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
+        <div v-if="program.video && !videoFailed" class="hero-video">
+          <div class="hero-video__frame">
+            <video
+              ref="videoEl"
+              :key="program.video"
+              :src="program.video"
+              :poster="program.videoPoster"
+              :controls="withSound"
+              :autoplay="!reduceMotion"
+              :muted="!withSound"
+              loop
+              playsinline
+              preload="metadata"
+              :aria-label="`Video promosi ${program.name} Infiedu`"
+              @error="videoFailed = true"
+            ></video>
+            <button v-if="!withSound" type="button" class="hero-video__sound" @click="playWithSound">
+              <span aria-hidden="true">▶</span> Tonton dengan suara
+            </button>
+          </div>
+          <div class="hero-video__badge" aria-hidden="true"><b>▶</b><span><small>Video promosi</small>{{ program.name }} Infiedu</span></div>
+          <span class="hero-art__spark hero-art__spark--a" aria-hidden="true">✳</span><span class="hero-art__spark hero-art__spark--b" aria-hidden="true">✦</span>
+        </div>
+        <div v-else class="hero-art" aria-hidden="true">
           <img :src="program.image" alt="" />
           <div class="hero-art__caption"><b>✦</b><span><small>{{ program.name }}</small>{{ program.visual }}</span></div>
           <span class="hero-art__spark hero-art__spark--a">✳</span><span class="hero-art__spark hero-art__spark--b">✦</span>
